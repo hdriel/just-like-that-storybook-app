@@ -11,7 +11,5 @@ module.exports = {
     "@storybook/addon-storysource",
   ],
   framework: "@storybook/react",
-  core: {
-    builder: "@storybook/builder-webpack5",
-  },
+  core: { builder: "@storybook/builder-webpack5" },
 };
