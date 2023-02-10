@@ -16,7 +16,9 @@ SurpriseInput.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   onSurprise: PropTypes.func,
-  surpriseInputs: PropTypes.arrayOf(),
+  // surpriseInputs: PropTypes.arrayOf(), // that made storybook FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
+  surpriseInputs: PropTypes.arrayOf(PropTypes.string),
+  // surpriseInputs: PropTypes.array, // or replace with that
 };
 
 SurpriseInput.defaultProps = {};
