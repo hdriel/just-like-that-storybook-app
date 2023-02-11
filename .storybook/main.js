@@ -1,3 +1,5 @@
+const webpack = require("../webpack.config");
+
 module.exports = {
   stories: [
     "../src/**/*.stories.mdx",
@@ -13,4 +15,9 @@ module.exports = {
   ],
   framework: "@storybook/react",
   core: { builder: "@storybook/builder-webpack5" },
+  webpackFinal: (config) => {
+    config.plugins ||= [];
+    config.plugins.push(webpack.plugins[1]);
+    return config;
+  },
 };

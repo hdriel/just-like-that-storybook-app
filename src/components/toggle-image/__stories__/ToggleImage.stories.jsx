@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import ToggleImage from "../ToggleImage";
-import img1 from "../../../assets/bulb-off.png";
-import img2 from "../../../assets/bulb-on.png";
-import img3 from "../../../assets/plant.png";
 
 export default {
   title: "Components/ToggleImage",
@@ -11,9 +8,9 @@ export default {
 
 const dummyProps = {
   images: [
-    { src: img1, width: 200, height: 200 },
-    { src: img2, width: 200, height: 200 },
-    { src: img3, width: 200, height: 200 },
+    { src: "assets/bulb-off.png", width: 200, height: 200 },
+    { src: "assets/bulb-on.png", width: 200, height: 200 },
+    { src: "assets/plant.png", width: 200, height: 200 },
   ],
 };
 
@@ -41,8 +38,8 @@ const Template = (args) => <ToggleImage {...args} />;
 export const Custom = Template.bind({});
 Custom.args = {
   images: [
-    { src: img1, width: 200, height: 200 },
-    { src: img2, width: 200, height: 200 },
+    { src: "assets/bulb-off.png", width: 200, height: 200 },
+    { src: "assets/bulb-on.png", width: 200, height: 200 },
   ],
   imageIndex: 0,
 };

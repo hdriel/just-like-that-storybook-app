@@ -1,14 +1,10 @@
 import React from "react";
 import Card from "../Card";
 
-import img1 from "../../../assets/bulb-off.png";
-import img2 from "../../../assets/bulb-on.png";
-import img3 from "../../../assets/plant.png";
-
 const IMAGES = [
-  { src: img1, width: 200, height: 200 },
-  { src: img2, width: 200, height: 200 },
-  { src: img3, width: 200, height: 200 },
+  { src: "assets/bulb-off.png", width: 200, height: 200 },
+  { src: "assets/bulb-on.png", width: 200, height: 200 },
+  { src: "assets/plant.png", width: 200, height: 200 },
 ];
 
 const SURPRISES = [
