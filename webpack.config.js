@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -18,6 +19,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Development",
       template: "src/index.html", // to import index.html file inside index.js
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, "src", "assets"),
+          to: "assets",
+          toType: "dir",
+        },
+      ],
     }),
   ],
   devServer: { port: 3030 },

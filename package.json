@@ -40,6 +40,7 @@
     "babel-plugin-emotion": "^11.0.0",
     "babel-plugin-styled-components": "^2.0.7",
     "babel-plugin-transform-regenerator": "^6.26.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "customize-cra": "^1.0.0",
     "html-webpack-plugin": "^5.5.0",

@@ -2,35 +2,34 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Input from "../../base-components/Input/Input";
 
-const COLORS = {
-  SURPRISE: "#0027ec",
-  UNSURPRISE: "#fa0000",
-};
-
 export default function SurpriseInput({
+  label,
+  placeholder,
+  defaultColor,
   disabled,
+  value,
+  onChange,
   defaultValue,
   onSurprise,
   surpriseInputs,
 }) {
-  const [value, setValue] = useState(defaultValue);
-  const [color, setColor] = useState(COLORS.UNSURPRISE);
-
-  function onChange(e) {
-    const v = e.target.value;
-    setValue(v);
-  }
+  const [color, setColor] = useState(defaultColor);
 
   useEffect(() => {
-    const isSurprised = surpriseInputs
-      .map((s) => s.toLowerCase())
-      .includes(value.toLowerCase());
-    if (isSurprised) onSurprise?.(value);
-    setColor(isSurprised ? COLORS.SURPRISE : COLORS.UNSURPRISE);
+    const surprise = surpriseInputs.find(
+      (s) => s?.name?.toLowerCase() === value?.toLowerCase()
+    );
+
+    if (surprise) onSurprise?.(surprise);
+    setColor(surprise ? surprise.color : defaultColor);
   }, [value]);
 
   return (
     <Input
+      label={label}
+      placeholder={placeholder}
+      hasLegend={false}
+      type="text"
       disabled={disabled}
       value={value}
       onChange={onChange}
@@ -40,15 +39,21 @@ export default function SurpriseInput({
 }
 
 SurpriseInput.propTypes = {
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  defaultColor: PropTypes.string,
   disabled: PropTypes.bool,
   defaultValue: PropTypes.string,
   onSurprise: PropTypes.func,
-  surpriseInputs: PropTypes.arrayOf(PropTypes.string),
-  // ['afek', 'hadriel']
-  // [{name: 'afek', color: 'blue'}, {name: 'Hadriel', color: 'green'}]
+  surpriseInputs: PropTypes.arrayOf(
+    PropTypes.shape({ name: PropTypes.string, color: PropTypes.string })
+  ),
 };
 
 SurpriseInput.defaultProps = {
+  label: "",
+  placeholder: "",
+  defaultColor: "#000000",
   disabled: false,
   defaultValue: "",
   onSurprise: undefined,

@@ -20,13 +20,13 @@ export const InitialValue = () => {
 };
 
 export const IsNotSurprise = () => {
-  return <SurpriseInput surpriseInputs={["Afek"]} />;
+  return <SurpriseInput surpriseInputs={[{ name: "Afek", color: "green" }]} />;
 };
 
 export const IsSurprise = () => {
   return (
     <SurpriseInput
-      surpriseInputs={["Afek"]}
+      surpriseInputs={[{ name: "Afek", color: "green" }]}
       defaultValue="Afek"
       onSurprise={action("onSurprise")}
     />
@@ -36,7 +36,25 @@ export const IsSurprise = () => {
 export const AfekAndHadrielWords = () => {
   return (
     <SurpriseInput
-      surpriseInputs={["Afek", "Hadriel"]}
+      surpriseInputs={[
+        { name: "Afek", color: "green" },
+        { name: "Hadriel", color: "blue" },
+      ]}
+      onSurprise={action("onSurprise")}
+    />
+  );
+};
+
+export const LabelInput = () => {
+  return (
+    <SurpriseInput
+      label="Surprise Input"
+      placeholder="guess my name"
+      surpriseInputs={[
+        { name: "Afek", color: "green" },
+        { name: "Hadriel", color: "blue" },
+      ]}
+      defaultValue=""
       onSurprise={action("onSurprise")}
     />
   );
